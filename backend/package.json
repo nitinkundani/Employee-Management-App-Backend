@@ -1,0 +1,39 @@
+{
+  "name": "mean-stack-app",
+  "version": "1.0.0",
+  "description": "mean stack application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "MEAN",
+    "stack"
+  ],
+  "author": "Nitin",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^27.5.0",
+    "angular2-flash-messages": "^3.0.1",
+    "bcrypt-nodejs": "^0.0.3",
+    "bluebird": "*",
+    "body-parser": "*",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "file-saver": "^2.0.5",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.1",
+    "mongoose-title-case": "^0.2.0",
+    "mongoose-validator": "^2.1.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.3",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "passport": "^0.5.2",
+    "passport-jwt": "*"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.5"
+  }
+}
