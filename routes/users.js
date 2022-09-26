@@ -22,11 +22,12 @@ router.post('/register', function(req, res) {
     username : req.body.username,
     password : req.body.password,
     name : req.body.name,
-    role : req.body.role
-    //dob = req.body.dob
+    role : req.body.role,
+    dob : req.body.dob,
+    salary: req.body.salary,
     });
 
-    if(user.username == " " || user.password == " " || user.role == " " || user.name == " " || user.email == " ")
+    if(user.username == " " || user.password == " " || user.role == " " || user.name == " " || user.email == " " || user.dob == undefined)
     {
         return res.status(400).json({msg: 'The input fields should not be blank.'});
     }
@@ -103,10 +104,11 @@ router.post('/employee' , passport.authenticate('jwt', {session: false}) , (req,
         password : req.body.password,
         name : req.body.name,
         role : req.body.role,
-        //dob = req.body.dob
+        dob : req.body.dob,
+        salary: req.body.salary,
         });
 
-        if(newUser.username == " " || newUser.password == " " || newUser.role == " " || newUser.name == " " || newUser.email == " ")
+        if(newUser.username == " " || newUser.password == " " || newUser.role == " " || newUser.name == " " || newUser.email == " " || user.dob == undefined)
         {
         return res.status(400).json({msg: 'The input fields should not be blank.'});
         }
@@ -160,10 +162,12 @@ router.put('/employee/:id', passport.authenticate('jwt', {session: false}), (req
                 username : req.body.username,
                 password : req.body.password,
                 name : req.body.name,
-                role : req.body.role
+                role : req.body.role, 
+                dob : req.body.dob,
+                salary: req.body.salary,
                 };
 
-                if(updatedUser.username == " " || updatedUser.password == " " || updatedUser.role == " " || updatedUser.name == " " || updatedUser.email == " ")
+                if(updatedUser.username == " " || updatedUser.password == " " || updatedUser.role == " " || updatedUser.name == " " || updatedUser.email == " " || updatedUser.dob == undefined)
                 {
                 return res.status(400).json({msg: 'The input fields should not be blank.'});
                 }   
