@@ -62,10 +62,10 @@ router.post('/login', (req, res, next) => {
             if(err)  { return res.status(501).json(err); }
             if(isMatch){
                 const token = jwt.sign({data: user}, config.secret, {
-                    expiresIn: 7200
+                    expiresIn: 28800
                 });
-
-                res.status(200).json({"token": token});
+                // {"token": token}
+                res.status(200).json(token);
             }
             else{
                 return res.status(400).json({msg: 'Wrong password'});    
@@ -108,7 +108,7 @@ router.post('/employee' , passport.authenticate('jwt', {session: false}) , (req,
         salary: req.body.salary,
         });
 
-        if(newUser.username == " " || newUser.password == " " || newUser.role == " " || newUser.name == " " || newUser.email == " " || user.dob == undefined)
+        if(newUser.username == " " || newUser.password == " " || newUser.role == " " || newUser.name == " " || newUser.email == " " || newUser.dob == new Date(1-1-1970) || newUser.salary == 0)
         {
         return res.status(400).json({msg: 'The input fields should not be blank.'});
         }
@@ -167,7 +167,7 @@ router.put('/employee/:id', passport.authenticate('jwt', {session: false}), (req
                 salary: req.body.salary,
                 };
 
-                if(updatedUser.username == " " || updatedUser.password == " " || updatedUser.role == " " || updatedUser.name == " " || updatedUser.email == " " || updatedUser.dob == undefined)
+                if(updatedUser.username == " " || updatedUser.password == " " || updatedUser.role == " " || updatedUser.name == " " || updatedUser.email == " " || updatedUser.dob == new Date(1-1-1970) || updatedUser.salary == 0)
                 {
                 return res.status(400).json({msg: 'The input fields should not be blank.'});
                 }   
